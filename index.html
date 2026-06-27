@@ -13,23 +13,13 @@
     </header>
 
     <main>
-      <p class="noBooks hidden">
+      <p class="noBooks">
         No books yet. <br />
         Add your first book to start building <br />
         your Library
       </p>
-      <div class="card">
-        <div class="top">
-          <p>Example Book</p>
-        </div>
-        <div class="content">
-            
-        </div>
-        <div class="bottom">
-          <button id="Mark">Mark as Read</button>
-          <button id="delete">Delete Book</button>
-        </div>
-      </div>
+
+      <section id="bookCardGrid"></section>
     </main>
 
     <footer class="site-footer">
@@ -42,7 +32,38 @@
         >
           Mohannad Ali
         </a>
+        . View
+        <a
+          href="https://github.com/Ali7488/LibraryProject"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub repo.</a
+        >
       </p>
     </footer>
+    <template id="bookCardTemplate">
+      <div class="card">
+        <div class="top">
+          <p class="bookTitle">Example Book</p>
+        </div>
+        <div class="content">
+          <p class="bookAuthor">
+            <strong>Author:</strong> <span>Sample Author</span>
+          </p>
+          <p class="bookPages">
+            <strong>No. of Pages: </strong>
+            <span>1234</span>
+          </p>
+          <p class="bookRead">
+            <strong>Status: </strong>
+            <span>Read/Not Read</span>
+          </p>
+        </div>
+        <div class="bottom">
+          <button type="button" class="mark-btn">Mark as Read</button>
+          <button type="button" class="delete-btn">Delete Book</button>
+        </div>
+      </div>
+    </template>
   </body>
 </html>
