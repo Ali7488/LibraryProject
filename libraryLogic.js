@@ -36,4 +36,8 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead ? "already read." : "not read yet."}`;
 };
 
-
+// Library Functions
+function addBookToLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+}
