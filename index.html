@@ -10,6 +10,8 @@
   <body>
     <header>
       <h1>Library System</h1>
+      <div></div>
+      <button type="button" id="newBook">Add Book</button>
     </header>
 
     <main>
@@ -19,7 +21,7 @@
         your Library
       </p>
 
-      <section id="bookCardGrid"></section>
+      <section class="book-grid hidden" id="bookCardGrid"></section>
     </main>
 
     <footer class="site-footer">
@@ -41,6 +43,8 @@
         >
       </p>
     </footer>
+
+    <!--Template for the cards to be added-->
     <template id="bookCardTemplate">
       <div class="card">
         <div class="top">
@@ -65,5 +69,52 @@
         </div>
       </div>
     </template>
+
+    <!--Dialog for adding a book popup-->
+    <dialog id="bookDialog">
+      <form id="bookForm" class="dialogue-card">
+        <fieldset>
+          <legend>Add a Book</legend>
+
+          <label for="bookTitleInput">Title</label>
+          <input
+            type="text"
+            id="bookTitleInput"
+            placeholder="e.g. The Hobbit"
+            required
+          />
+
+          <label for="bookAuthorInput">Author</label>
+          <input
+            type="text"
+            id="bookAuthorInput"
+            placeholder="e.g.J.R.R. Tolkien"
+            required
+          />
+
+          <label for="bookPagesInput">Pages</label>
+          <input
+            type="number"
+            id="bookPagesInput"
+            min="1"
+            placeholder="e.g. 280"
+            required
+          />
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="bookReadInput" />
+            Already read
+          </label>
+
+          <div class="form-actions">
+            <button type="button" id="cancelBookBtn" class="cancel">
+              Cancel
+            </button>
+            <button type="submit" class="save">Save</button>
+          </div>
+          
+        </fieldset>
+      </form>
+    </dialog>
   </body>
 </html>
