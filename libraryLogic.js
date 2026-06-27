@@ -33,7 +33,7 @@ function Book(title, author, pages, read) {
 
 // Buttons
 const addBookBtn = document.getElementById("newBook");
-const markBtn = document.querySelectorAll(".mark-btn");
+const cancelBtn = document.getElementById("cancelBookBtn");
 
 // Form Values
 const bookForm = document.getElementById("bookForm");
