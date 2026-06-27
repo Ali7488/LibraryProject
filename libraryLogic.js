@@ -25,16 +25,14 @@ function Book(title, author, pages, read) {
 
   // Assign book properties
   this.bookId = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
+  this.title = title.trim();
+  this.author = author.trim();
   this.pages = pages;
   this.isRead = read;
 }
 
 // Buttons
 const addBookBtn = document.getElementById("newBook");
-const cancelBtn = document.getElementById("cancelBookBtn");
-const deleteBtn = document.querySelectorAll(".delete-btn");
 const markBtn = document.querySelectorAll(".mark-btn");
 
 // Form Values
