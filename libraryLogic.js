@@ -90,6 +90,22 @@ bookGrid.addEventListener("click", (event) => {
   renderLibrary();
 });
 
+bookGrid.addEventListener("click", (event) => {
+  if (!event.target.classList.contains("mark-btn")) {
+    return;
+  }
+
+  const card = event.target.closest(".card");
+  const bookId = card.dataset.bookId;
+
+  //find the book, then flip the isRead value
+  const book = myLibrary.find((book) => book.bookId === bookId);
+  if (!book) return;
+
+  book.isRead = !book.isRead;
+  renderLibrary();
+});
+
 // Library Functions
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
