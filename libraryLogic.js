@@ -1,34 +1,72 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  //Safety net ensuring we "new" was used when the constructor was called
-  if (!new.target) {
-    throw new Error("You must use the 'new' operator to call the constructor");
+class Book {
+  #bookId;
+  #title;
+  #author;
+  #pages;
+  #isRead;
+
+  constructor(title, author, pages, read) {
+    this.#bookId = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = read;
   }
 
-  // Check Parameters are of correct datatype
-  if (typeof title !== "string" || title.trim() === "") {
-    throw new Error("title must be a non-empty string");
+  get bookId() {
+    return this.#bookId;
   }
 
-  if (typeof author !== "string" || author.trim() === "") {
-    throw new Error("author must be a non-empty string");
+  get title() {
+    return this.#title;
   }
 
-  if (!Number.isInteger(pages) || pages <= 0) {
-    throw new Error("pages must be a positive integer");
+  get author() {
+    return this.#author;
   }
 
-  if (typeof read !== "boolean") {
-    throw new Error("read must be a boolean");
+  get pages() {
+    return this.#pages;
   }
 
-  // Assign book properties
-  this.bookId = crypto.randomUUID();
-  this.title = title.trim();
-  this.author = author.trim();
-  this.pages = pages;
-  this.isRead = read;
+  get isRead() {
+    return this.#read;
+  }
+
+  // Check Parameters are of correct datatype in setters
+  set title(value) {
+    if (typeof value !== "string" || value.trim() === "") {
+      throw new Error("title must be a non-empty string");
+    }
+
+    this.#title = value.trim();
+  }
+
+  set author(value) {
+    if (typeof value !== "string" || value.trim() === "") {
+      throw new TypeError("author must be a non-empty string");
+    }
+
+    this.#author = value.trim();
+  }
+
+  set pages(value) {
+    if (!Number.isInteger(value) || value <= 0) {
+      throw new TypeError("pages must be a positive integer");
+    }
+
+    this.#pages = value;
+  }
+
+  set isRead(value) {
+    if (typeof value !== "boolean") {
+      throw new TypeError("read must be a boolean");
+    }
+
+    this.#read = value;
+  }
 }
 
 // Buttons
